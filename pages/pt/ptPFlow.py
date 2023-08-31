@@ -52,7 +52,7 @@ def create_layout(app):
                     html.Div(
                         [
                             html.H6(
-                                ["Cargas"],
+                                ["Dados das Barras"],
                                 className="subtitle padded",
                             ),
                             dcc.Upload(id='load_PF',

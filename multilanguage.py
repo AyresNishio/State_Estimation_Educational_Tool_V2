@@ -10,7 +10,6 @@ la['pt-br'] = {
     'De': 'De',
     'Para': 'Para',
     'Valor': 'Valor',
-    'Desvio Padrão': 'Desvio Padrão',
     # 'topology-columns'
     'R': 'R',
     'X': 'X',
@@ -59,7 +58,7 @@ la['pt-br'] = {
     # Iteratividade com o grafo
     'Medida': 'Medida',
     'Valor': 'Valor',
-    'Desvio Padrão': 'Desvio Padrão',
+    'Desvio Padrão': 'Precisão',
     ## Medidas de Barra
     'Injeção de Potência Ativa': 'Injeção de Potência Ativa',
     'Injeção de Potência Reativa': 'Injeção de Potência Reativa',
@@ -141,7 +140,6 @@ la['en-us'] = {
     'De': 'From',
     'Para': 'To',
     'Valor': 'Value',
-    'Desvio Padrão': 'Standard Deviation',
     # 'topology-columns'
     'To':'To',
     'R': 'R',
@@ -190,7 +188,7 @@ la['en-us'] = {
     # Iteratividade com o grafo
     'Medida': 'Measurement',
     'Valor': 'Value',
-    'Desvio Padrão': 'Standard Deviation',
+    'Desvio Padrão': 'Precision',
     ## Medidas de Barra
     'Injeção de Potência Ativa': 'Active Power Injection',
     'Injeção de Potência Reativa': 'Reactive Power Injection',

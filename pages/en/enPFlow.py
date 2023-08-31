@@ -4,6 +4,7 @@ import plotly.graph_objs as go
 import dash_table
 from dash_table.Format import Format, Group, Scheme, Symbol
 
+import dash_daq as daq
 import dash_cytoscape as cyto
 import sys
 import os
@@ -46,7 +47,7 @@ def create_layout(app):
                     html.Div(
                         [
                             html.H6(
-                                ["Load"],
+                                ["Bus Data"],
                                 className="subtitle padded",
                             ),
                             dcc.Upload(id='load_PF',

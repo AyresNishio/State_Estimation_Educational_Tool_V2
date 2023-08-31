@@ -24,7 +24,7 @@ def create_layout(app):
             html.Div(#borda em torno da página 
             [
                 #Introdução
-                html.H4(["Education Tool Overview"], className="subtitle", style = { 'color':'#C00000','border-right':'5px solid #4472c4','border-top': '5px solid #4472c4'}),
+                html.H4(["Educational Tool Overview"], className="subtitle", style = { 'color':'#C00000','border-right':'5px solid #4472c4','border-top': '5px solid #4472c4'}),
 
                 html.Div( #margem dentro da borda
                 [
