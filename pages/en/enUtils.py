@@ -31,7 +31,7 @@ def get_header(app):
                     ),
                     html.A(
                         html.Button("Prof. Milton Webpage", id="teacher", style={"margin-top": "30px"}),
-                        href="http://www.ic.uff.br/~mbrown/",
+                        href="https://mbrown.com.br/",
                     ),
                     html.A(
                         html.Button("Português", style={"margin-top": "30px", "margin-left": "5px"}),
