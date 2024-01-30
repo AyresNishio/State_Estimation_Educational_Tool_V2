@@ -47,7 +47,7 @@ def create_layout(app):
                     html.Div(
                         [
                             html.H6(
-                                ["Bus Data"],
+                                ["Load"],
                                 className="subtitle padded",
                             ),
                             dcc.Upload(id='load_PF',
@@ -73,6 +73,7 @@ def create_layout(app):
 
                     html.Div([
                             html.H6(["Add Measurement Noise for the State Estimation?"], className="subtitle padded"),
+                            
                             daq.ToggleSwitch(
                                 id='Bool_Meds_noise',
                                 value=False,

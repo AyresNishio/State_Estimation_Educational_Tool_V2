@@ -391,7 +391,7 @@ def update_se_steps(topology, meansured,n_clicks, metodo, tolerancia, total_max_
                 _, _,_, _, _,is_observable,output_text = PSSE.state_estimation( line,med,tolerancia,metodo,total_max_iteracoes)
                 
                 if is_observable:
-                    return dict(content =output_text, filename = 'State Estimation Report.txt')
+                    return dict(content =output_text, filename = 'State Estimation Execution Log.txt')
                     
                 else:
                     #POP-UP NAO OBSERVAVEL

@@ -31,7 +31,7 @@ def get_header(app):
                     html.Div([
                     html.A(
                         html.Button("Prof. Milton Brown", id="teacher",target="_blank"),
-                        href="https://mbrown.com.br/",
+                        href="http://www.ic.uff.br/~mbrown/",
                     ),
                     html.A(
                         html.Button("Português"),

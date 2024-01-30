@@ -586,42 +586,41 @@ def print_steps(saidas_it, state_dataframe, meas_dataframe):
         delta_x     = saida.delta_x 
         state_array = saida.state_array  
 
-        output_text += f'\n##### ITERATION {it+1} #####\n'
-        output_text += '\n### Jacobian Matrix H ###\n'
+        output_text += f'\n##### ITERAÇÃO {it+1} #####\n'
+        output_text += '\n### Matriz Jacobiana H ###\n'
         for lin in Jacob:
             for x in lin:
                 output_text += format(x,' .4e') + ' '
             output_text+='\n'
 
-        output_text += '\n### Gain Matrix G ###\n'
+        output_text += '\n### Matriz de Ganho G ###\n'
         for lin in G_matrix:
             for x in lin:
                 output_text += format(x,' .4e') + ' '
             output_text+='\n'
         
-        output_text += '\n### Estimated Values h(x) ###\n'
+        output_text += '\n### Valores estimados h(x) ###\n'
         for x in h_x:
             output_text += format(x,' .4f')+'\n'
         output_text += '\n' 
 
-        output_text += '\n### Delta x ###\n'
+        output_text += '\n### delta x ###\n'
         for x in delta_x:
             output_text += format(x,' .10f')+'\n'
         output_text += '\n' 
 
-        output_text += '\n### State (x) ###\n'
+        output_text += '\n### Estado (x) ###\n'
         for x in state_array:
             output_text += format(x,' .4f')+'\n'
         output_text += '\n'
 
         it+=1
 
-    output_text += f'\n##### Final Results #####\n'
-    output_text += '\n### Final Estimated State ###\n'
+    output_text += f'\n##### RESULTADO FINAL #####\n'
+    output_text += '\n### Estado Estimado Final###\n'
     output_text += state_dataframe.to_string() +'\n'
 
-    #output_text += '\n### Valores Medidos Finais###\n'
-    output_text += '\n### Final Estimated Values ###\n'
+    output_text += '\n### Valores Medidos Finais###\n'
     output_text += meas_dataframe.to_string()
     return output_text
 
@@ -640,54 +639,54 @@ def print_steps_decoupled(saidas_it, state_dataframe, meas_dataframe):
         delta_x     = saida.delta_x 
         state_array = saida.state_array  
 
-        output_text += f'\n##### ITERATION {it+1} #####\n'
-        output_text += '\n### Jacobian Matrix (Htheta) : Ptheta ###\n'
+        output_text += f'\n##### ITERAÇÃO {it+1} #####\n'
+        output_text += '\n### Matriz Jacobiana (Htheta) : Ptheta ###\n'
         for lin in Jacob_t:
             for x in lin:
                 output_text += format(x,' .4e') + ' '
             output_text+='\n'
-        output_text += '\n### Gain Matrix (Gtheta) : Ptheta  ###\n'
+        output_text += '\n### Matriz de Ganho (Gtheta) : Ptheta  ###\n'
         for lin in Gain_t:
             for x in lin:
                 output_text += format(x,' .4e') + ' '
             output_text+='\n'  
-        output_text += '\n### Estimated Values h(x) : Ptheta ###\n'
+        output_text += '\n### Valores estimados h(x) : Ptheta ###\n'
         for x in h_x1:
             output_text += format(x,' .4f')+'\n'
         output_text += '\n'   
             
-        output_text += '\n### Jacobian Matrix (HV) : QV ###\n'
+        output_text += '\n### Matriz Jacobiana (HV) : QV ###\n'
         for lin in Jacob_v:
             for x in lin:
                 output_text += format(x,' .4e') + ' '
             output_text+='\n'
-        output_text += '\n### Gain Matrix (Gv) : QV ###\n'
+        output_text += '\n### Matriz de Ganho (Gv) : QV ###\n'
         for lin in Gain_v:
             for x in lin:
                 output_text += format(x,' .4e') + ' '
             output_text+='\n'
-        output_text += '\n### Estimated Values h(x) : QV ###\n'
+        output_text += '\n### Valores estimados h(x) : QV ###\n'
         for x in h_x2:
             output_text += format(x,' .4f')+'\n'
         output_text += '\n' 
 
-        output_text += '\n### Delta x ###\n'
+        output_text += '\n### delta x ###\n'
         for x in delta_x:
             output_text += format(x,' .10f')+'\n'
         output_text += '\n' 
 
-        output_text += '\n### State (x) ###\n'
+        output_text += '\n### Estado (x) ###\n'
         for x in state_array:
             output_text += format(x,' .4f')+'\n'
         output_text += '\n'
 
         it+=1
 
-    output_text += f'\n##### FINAL RESULT #####\n'
-    output_text += '\n### Final Estimated State ###\n'
+    output_text += f'\n##### RESULTADO FINAL #####\n'
+    output_text += '\n### Estado Estimado Final###\n'
     output_text += state_dataframe.to_string() +'\n'
 
-    output_text += '\n### Final Estimated Values ###\n'
+    output_text += '\n### Valores Medidos Finais###\n'
     output_text += meas_dataframe.to_string()
     return output_text
 

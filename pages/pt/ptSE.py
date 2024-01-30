@@ -151,7 +151,7 @@ def create_layout(app):
                 # Botão para Iniciar a Execução da Estimação com steps
                 html.Div(
                 [
-                    html.Button('Exportar Relatório da Estimação', id='exe-EE-step', n_clicks=0, style = {'color':'#FFFFF8' , 'background-color' : '#98151b'},), 
+                    html.Button('Executar Estimação (por etapas)', id='exe-EE-step', n_clicks=0, style = {'color':'#FFFFF8' , 'background-color' : '#98151b'},), 
                     dcc.Download(id = 'downloadSE-steps'),
 
                 ],
