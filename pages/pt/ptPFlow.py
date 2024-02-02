@@ -43,7 +43,7 @@ def create_layout(app):
                                                             html.A('Modifique os parametros no Editor de Topologia')
                                                             ]),),
                             dash_table.DataTable(id='topology_table_PF', editable=False,row_deletable=False,page_action='none',
-                            style_table={ 'overflowY': 'auto'},style_cell={'textAlign': 'center'}),
+                            style_table={'height': '300px', 'overflowY': 'auto'},style_cell={'textAlign': 'center'}),
                         ],
                         className="six columns",
                     ),
@@ -62,7 +62,7 @@ def create_layout(app):
                             # html.Div(id = 'meansured_table'),
                             dash_table.DataTable(id='load_table_PF',#columns=[{"name": i, "id": i} for i in m_Table.columns], data=m_Table.to_dict('records'),
                             editable=True,row_deletable= False,page_action='none',
-                            style_table={'overflowY': 'auto'},style_cell={'textAlign': 'center'}, selected_rows=list()),
+                            style_table={'height': '300px','overflowY': 'auto'},style_cell={'textAlign': 'center'}, selected_rows=list()),
                             # html.Button('Add Row', id='editing-rows-button', n_clicks=0)
                         ],
                         className="six columns",

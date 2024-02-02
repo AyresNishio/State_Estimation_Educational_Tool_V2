@@ -109,7 +109,8 @@ def func(n_clicks):
 def runServer():
     # if FLG_DEBUG_MODE:
     #     os.system("start \"\" http://127.0.0.1:8050")
-    app.run_server(debug=FLG_DEBUG_MODE)
+    #app.run_server(debug=FLG_DEBUG_MODE)
+    app.run_server()
 
 if __name__ == "__main__":
     runServer()
