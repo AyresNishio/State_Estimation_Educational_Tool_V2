@@ -384,7 +384,7 @@ def update_se_steps(topology, meansured,n_clicks, metodo, tolerancia, total_max_
         line.rename(columns=dict_names,inplace=True)
         temp=list(line['B'])
         temp = [1/temp[i] if temp[i] > 0 else 0 for i in range(len(line))]
-        line['B'] = temp
+        line['C'] = temp
         if len(dash.callback_context.triggered):
             if dash.callback_context.triggered[0]['prop_id'] == 'exe-EE-step.n_clicks':
                 
