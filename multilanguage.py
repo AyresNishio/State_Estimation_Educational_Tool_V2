@@ -127,6 +127,13 @@ la['pt-br'] = {
     'Q_inj' :'Injeção Pot. Reativ.',
     'V' :'Módulo da Tensão',
     
+    #Fluxo distribuição
+    'Desvio Ativo' : 'Desvio Ativo',
+    'Desvio Reativo' : 'Desvio Reativo',
+    'Desvio' : 'Desvio',
+    'Corrente (pu)': 'Corrente (pu)',
+    'Ângulo (graus)': 'Ângulo (graus)',
+    
 }
 
 la['en-us'] = {

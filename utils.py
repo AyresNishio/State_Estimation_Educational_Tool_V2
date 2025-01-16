@@ -86,7 +86,11 @@ def get_menu():
                 href="/dash/pt/state-estimation",
                 className="tab",
             ),
-            
+            dcc.Link(
+                "Fluxo de Potência na Distribuição",
+                href="/dash/pt/distribution-power-flow",
+                className="tab",
+            ),
             dcc.Link(
                 "Estimador com Capacidade de Previsão",
                 href="/dash/PHASE",

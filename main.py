@@ -18,6 +18,7 @@ from callbacks.cbFP import *
 from callbacks.comuns import *
 from callbacks.cbTE import *
 from callbacks.cbSE import *
+from callbacks.cbFPD import *
 
 #from callbacks.cbFP import *
 
@@ -28,6 +29,7 @@ from pages.pt import (
     ptTE,
     ptSE,
     ptPFlow,
+    ptFPD,
     ptDSSE,
     ptPHASE
 )
@@ -52,7 +54,7 @@ server = app.server
 
 # Describe the layout/ UI of the app
 app.layout = html.Div(
-    [dcc.Location(id="url", refresh=False), html.Div(id="page-content"), dcc.Store(id='tables-storage'), dcc.Store(id='load-storage'), dcc.Store(id='measurements-storage')]
+    [dcc.Location(id="url", refresh=False), html.Div(id="page-content"), dcc.Store(id='tables-storage'), dcc.Store(id='load-storage'), dcc.Store(id='load-storage-FPD'), dcc.Store(id='measurements-storage')]
 ) # html.Div(id="tables-storage", data={},style={'visibility': 'hidden'})
 
 # Update page
@@ -66,6 +68,8 @@ def display_page(pathname):
         return ptPFlow.create_layout(app)
     elif pathname == "/dash/pt/state-estimation":
         return ptSE.create_layout(app)
+    elif pathname == "/dash/pt/distribution-power-flow":
+        return ptFPD.create_layout(app)
     elif pathname == "/dash/pt/PHASE":
         return ptPHASE.create_layout(app)
     elif pathname == "/dash/pt/DSSE":
