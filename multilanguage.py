@@ -132,7 +132,7 @@ la['pt-br'] = {
     'Desvio Reativo' : 'Desvio Reativo',
     'Desvio' : 'Desvio',
     'Corrente (pu)': 'Corrente (pu)',
-    'Ângulo (graus)': 'Ângulo (graus)',
+    'Ângulo (graus)': 'Ângulo (graus)'
     
 }
 
@@ -265,6 +265,12 @@ la['en-us'] = {
     'Q_flow':'Reactive Power Flow',
     'Q_inj' :'Reactive Power Injection',
     'V' :'Voltage',
+    #Fluxo distribuição
+    'Desvio Ativo' : 'Active Power Flow Error',
+    'Desvio Reativo' : 'Reactive Power Flow Error',
+    'Desvio' : 'Deviation',
+    'Corrente (pu)': 'Current (pu)',
+    'Ângulo (graus)': 'Angle (graus)'
 }
 
 def translatePrefix(palavraEmPortugues, lingua, prefixo):
