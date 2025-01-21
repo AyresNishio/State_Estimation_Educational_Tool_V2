@@ -94,6 +94,11 @@ def get_menu():
                 href="/dash/en/state-estimation",
                 className="tab",
             ),
+            dcc.Link(
+                "Distribution Power Flow",
+                href="/dash/en/distribution-power-flow",
+                className="tab",
+            ),
             
             # dcc.Link(
             #     "Observabilidade e Criticidade", href="/dash-financial-report/fees", className="tab"

@@ -19,7 +19,7 @@ def create_layout(app):
     # Page layouts
     return html.Div(
         [
-            html.Div([Header(app)]), #Cabeçalio com opções de página
+            html.Div([Header(app)]), #Cabeçalho com opções de página
             # page 1
             html.Div(#borda em torno da página 
             [

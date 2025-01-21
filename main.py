@@ -40,6 +40,7 @@ from pages.en import (
     enTE,
     enSE,
     enPFlow,
+    enFPD,  
     enPHASE
 )
 
@@ -84,19 +85,12 @@ def display_page(pathname):
         return enSE.create_layout(app)
     elif pathname == "/dash/en/PowerFlow":
         return enPFlow.create_layout(app)
+    elif pathname == "/dash/en/distribution-power-flow":
+        return enFPD.create_layout(app)
     elif pathname == "/dash/en/PHASE":
         return enPHASE.create_layout(app)
     elif pathname == "/dash/en/DSSE":
         return enDSSE.create_layout(app)
-    # elif pathname == "/dash-financial-report/full-view":
-    #     return (
-    #         ptOverview.create_layout(app),
-    #         ptSE.create_layout(app),
-    #         ptPFlow.create_layout(app),
-    #         # feesMins.create_layout(app),
-    #         enPHASE.create_layout(app),
-    #         enDSSE.create_layout(app),
-    #     )
     else:
         return ptOverview.create_layout(app)
 
