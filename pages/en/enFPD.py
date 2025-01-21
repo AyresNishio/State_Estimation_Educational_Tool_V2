@@ -10,7 +10,7 @@ import sys
 import os
 current_dir = os.path.dirname(__file__)
 sys.path.append(os.path.dirname(current_dir))
-from pages.pt.ptUtils import Header, make_dash_table
+from pages.en.enUtils import Header, make_dash_table
 import pandas as pd
 import pathlib
 
@@ -25,7 +25,7 @@ def create_layout(app):
         [
 
             Header(app),
-            html.Div(id='page-language', lang='pt-br', style={'display': 'none'}),
+            html.Div(id='page-language', lang='en-us', style={'display': 'none'}),
         
             html.Div([
                 # The native browser confirm dialog
@@ -40,11 +40,11 @@ def create_layout(app):
             [
             
 
-                    html.H4(["Fluxo de Potência na Distribuição"], className="subtitle"),
+                    html.H4(["Distribution Power Flow (Backward-Forward)"], className="subtitle"),
                     html.Br(),
                     html.Div(
                     [
-                        html.H6('Tolerância',style={'display':'inline-block','margin-right':20}),
+                        html.H6('Tolerance',style={'display':'inline-block','margin-right':20}),
                         html.Div(
                             [
                                 dcc.Input(
@@ -62,7 +62,7 @@ def create_layout(app):
 
                     html.Div(
                     [
-                        html.H6('Limite Iterações',style={'display':'inline-block','margin-right':20}),
+                        html.H6('Total iterations',style={'display':'inline-block','margin-right':20}),
                         html.Div(
                             [
                                 dcc.Input(
@@ -78,7 +78,7 @@ def create_layout(app):
                     
                     html.Div(
                     [
-                        html.H6('Barra de Referência',style={'display':'inline-block','margin-right':20}),
+                        html.H6('Reference Bus (Slack)',style={'display':'inline-block','margin-right':20}),
                         html.Div(
                             [
                                 dcc.Input(
@@ -95,7 +95,7 @@ def create_layout(app):
                     
                     html.Div(
                     [
-                        html.H6('Barra final do ramo principal',style={'display':'inline-block','margin-right':20}),
+                        html.H6('Last bus main branch',style={'display':'inline-block','margin-right':20}),
                         html.Div(
                             [
                                 dcc.Input(
@@ -111,7 +111,7 @@ def create_layout(app):
 
                     html.Div(
                     [
-                        html.H6('Modulo Tensão Inicial (pu)',style={'display':'inline-block','margin-right':20}),
+                        html.H6('Initial voltage (pu)',style={'display':'inline-block','margin-right':20}),
                         html.Div(
                             [
                                 dcc.Input(
@@ -129,7 +129,7 @@ def create_layout(app):
 
                     html.Div(
                     [
-                        html.H6('Fase Tensão Inicial (graus)',style={'display':'inline-block','margin-right':20}),
+                        html.H6('Initial angle (graus)',style={'display':'inline-block','margin-right':20}),
                         html.Div(
                             [
                                 dcc.Input(
@@ -151,11 +151,11 @@ def create_layout(app):
                     html.Div(
                         [
                             html.H6(
-                                ["Topologia"], className="subtitle padded"
+                                ["Topology"], className="subtitle padded"
                             ),
                             dcc.Upload(id='topology_FPD', disabled=True,
                                         children = html.Div([
-                                                            html.A('Modifique os parametros no Editor de Topologia')
+                                                            html.A('Change the parameters in the topology editor')
                                                             ]),),
                             dash_table.DataTable(id='topology_table_FPD', editable=False,row_deletable=False,page_action='none',
                             style_table={'height': '200px', 'overflowY': 'auto'},
@@ -167,12 +167,12 @@ def create_layout(app):
                     html.Div(
                         [
                             html.H6(
-                                ["Dados das Cargas"],
+                                ["Load Data"],
                                 className="subtitle padded",
                             ),
                             dcc.Upload(id='load_FPD',
                                         children = html.Div([
-                                                            html.A('Arraste ou Selecione o Arquivo')
+                                                            html.A('Drag or Select the File')
                                                             ]),),
                             dash_table.DataTable(id='load_table_FPD',
                             editable=True,row_deletable= False,page_action='none',
@@ -186,7 +186,7 @@ def create_layout(app):
                     
                     html.Div(
                         [
-                            html.Button('Executar Fluxo de Potência', id='exe-EE', n_clicks=0, style = {'color':'#FFFFFF' , 'background-color' : '#98151b'},), 
+                            html.Button('Run Power Flow', id='exe-EE', n_clicks=0, style = {'color':'#FFFFFF' , 'background-color' : '#98151b'},), 
                             
                         ],
                         style = {'text-align':'center' , 'margin-top': '300px'},
@@ -196,7 +196,7 @@ def create_layout(app):
 
                     html.Div(
                                 [
-                                    html.H6("Grafo da Rede Recebida", className="subtitle padded"),
+                                    html.H6("Topology Graph", className="subtitle padded"),
                                     cyto.Cytoscape(
                                         id='cytoscape_FPD',
                                         elements={},
@@ -246,7 +246,7 @@ def create_layout(app):
                             html.Div(
                                 [
                                     html.H6(
-                                        ["Resultado de Medidas das Barras"], className="subtitle padded"
+                                        ["Voltage Results"], className="subtitle padded"
                                     ),
                                     dash_table.DataTable(id = 'FPD_bar',page_action='none',
                                     style_table={'overflow': 'auto', 'width': '500px','align':'center'},style_cell={'textAlign': 'center'}),
@@ -270,7 +270,7 @@ def create_layout(app):
                             html.Div(
                                 [
                                     html.H6(
-                                        ["Resultados de Medidas das Linhas"], className="subtitle padded"
+                                        ["Currents Flows Results"], className="subtitle padded"
                                     ),
                                     dash_table.DataTable(id = 'FPD_lin',page_action='none', #fixed_rows={'headers': True}, 
                                     style_table={'overflow': 'auto', 'width': '600px','align':'center'},style_cell={'textAlign': 'center'}),

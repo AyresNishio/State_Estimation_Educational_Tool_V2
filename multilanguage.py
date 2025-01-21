@@ -133,7 +133,14 @@ la['pt-br'] = {
     'Desvio' : 'Desvio',
     'Corrente (pu)': 'Corrente (pu)',
     'Ângulo (graus)': 'Ângulo (graus)',
-    
+    'Erro de dimensão': 'Erro de dimensão!',
+    'Erro arquivo entrada':'Erro na dimensão dos arquivos de entrada',
+    'Erro inesperado': 'Erro inesperado',
+    'Contato Suporte' : 'ERRO INESPERADO! Entre em contato com o suporte!',
+    'Referencia-UltimaBarra': 'A referência deve ser diferente da ultima barra',
+    'Referencia-Extremidade': 'A barra de Referência deve estar nas extremidades da rede',
+    'Final': 'A barra final do ramo principal deve estar nas extremidades da rede',
+    'Sucesso' : 'Fluxo calculado com sucesso!'
 }
 
 la['en-us'] = {
@@ -265,6 +272,20 @@ la['en-us'] = {
     'Q_flow':'Reactive Power Flow',
     'Q_inj' :'Reactive Power Injection',
     'V' :'Voltage',
+    #Fluxo distribuição
+    'Desvio Ativo' : 'Active Power Flow Error',
+    'Desvio Reativo' : 'Reactive Power Flow Error',
+    'Desvio' : 'Deviation',
+    'Corrente (pu)': 'Current (pu)',
+    'Ângulo (graus)': 'Angle (graus)',
+    'Erro de dimensão': 'Dimension Error!',
+    'Erro arquivo entrada': 'Input file error!',
+    'Erro inesperado': 'Unexpected error!',
+    'Contato Suporte' : 'UNEXPECTED ERROR! Contact support!',
+    'Referencia-UltimaBarra': 'The reference bus must be different from the last bus',
+    'Referencia-Extremidade': 'The reference bus must be at the ends of the network',
+    'Final': 'The last bus of the main branch must be at the ends of the network',
+    'Sucesso' : 'Flow calculated successfully!'
 }
 
 def translatePrefix(palavraEmPortugues, lingua, prefixo):

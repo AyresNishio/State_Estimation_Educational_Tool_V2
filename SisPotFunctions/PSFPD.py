@@ -168,7 +168,7 @@ def indexacao(dados, nbus):
     return index, rbf, nbf    
 
 
-def run_fpd(topology_data, load_data, tol, max_it, ref,final_ref):
+def run_fpd(topology_data, load_data, tol, max_it, ref,final_ref,v_inicial,ang_inicial):
     
     tol = np.float64(tol)
     max_it = int(max_it)
@@ -194,8 +194,7 @@ def run_fpd(topology_data, load_data, tol, max_it, ref,final_ref):
     dpreat = 999.0   # diferença no valor da perda reativa entre duas iterações
 
     # Inicialização das tensões nas barras
-    tensao = np.ones(nbus, dtype=complex)
-
+    tensao = np.ones(nbus, dtype=complex) * (v_inicial * np.cos(ang_inicial * np.pi / 180) + 1j * v_inicial * np.sin(ang_inicial * np.pi / 180))
     iter = 0
     
     objetivo=[]
