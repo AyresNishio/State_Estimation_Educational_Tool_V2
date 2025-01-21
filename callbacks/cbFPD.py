@@ -108,9 +108,9 @@ def load_fpd(contents, filename, tablesData, language):
         return dff.to_dict('records'),calls
 
 @app.callback([Output("FPD_bar", "data"), Output("FPD_bar", "columns"),Output("FPD_lin", "data"), Output("FPD_lin", "columns"),Output("graphFPD","figure"),Output('confirm-error-fpd','displayed'),Output('confirm-error-fpd', 'message')], 
-              [Input("topology_table_FPD", "data"),Input("load_table_FPD", "data"),Input('input_tol_FPD', 'value'),Input('input_iteracoes_FPD', 'value'),Input('input_refbus_FPD', 'value'),Input('input_final_bus_FPD', 'value'),Input('exe-EE', 'n_clicks')],
+              [Input("topology_table_FPD", "data"),Input("load_table_FPD", "data"),Input('input_tol_FPD', 'value'),Input('input_iteracoes_FPD', 'value'),Input('input_refbus_FPD', 'value'),Input('input_final_bus_FPD', 'value'),Input('input_refbus_FPD', 'value'),Input('input_final_bus_FPD', 'value'),Input('exe-EE', 'n_clicks')],
               State('page-language', 'lang'))
-def update_fpd(topology_data,load_data,tol,max_it,ref,final_ref,n_clicks,language):
+def update_fpd(topology_data,load_data,tol,max_it,ref,final_ref,v_inicial, ang_inicial,n_clicks,language):
     
     try:
     
@@ -123,13 +123,13 @@ def update_fpd(topology_data,load_data,tol,max_it,ref,final_ref,n_clicks,languag
                 if dash.callback_context.triggered[0]['prop_id'] == 'exe-EE.n_clicks':
                     
                     if ref == final_ref: 
-                        return [{" ":" "}], [{"name": " ", "id": " "}],[{" ":" "}],[{"name": " ", "id": " "}],{},True,'A referência deve ser diferente da ultima barra'
+                        return [{" ":" "}], [{"name": " ", "id": " "}],[{" ":" "}],[{"name": " ", "id": " "}],{},True,ml.ml('Referencia-UltimaBarra', language)
                     if not PSFPD.are_endings(ref,topology_data):
-                        return [{" ":" "}], [{"name": " ", "id": " "}],[{" ":" "}],[{"name": " ", "id": " "}],{},True,'A barra de Referência deve estar nas extremidades da rede'
+                        return [{" ":" "}], [{"name": " ", "id": " "}],[{" ":" "}],[{"name": " ", "id": " "}],{},True,ml.ml('Referencia-Extremidade', language)
                     if not PSFPD.are_endings(final_ref,topology_data):
-                        return [{" ":" "}], [{"name": " ", "id": " "}],[{" ":" "}],[{"name": " ", "id": " "}],{},True,'A barra final do ramo principal deve estar nas extremidades da rede'
+                        return [{" ":" "}], [{"name": " ", "id": " "}],[{" ":" "}],[{"name": " ", "id": " "}],{},True,ml.ml('Final', language)
                     
-                    resultados_barra, resultados_fluxo,resultados_linha,resultado_medidas, iter, n_bus,objetivo= PSFPD.run_fpd(network_file,load_file,tol,max_it,ref,final_ref) #roda e armazena o resultado do fluxo de potencia
+                    resultados_barra, resultados_fluxo,resultados_linha,resultado_medidas, iter, n_bus,objetivo= PSFPD.run_fpd(network_file,load_file,tol,max_it,ref,final_ref,float(v_inicial), float(ang_inicial)) #roda e armazena o resultado do fluxo de potencia
                     
                     #########################################################Prepara Plotagem#######################################################
                     ativo = [x[0] for x in objetivo]
@@ -148,17 +148,19 @@ def update_fpd(topology_data,load_data,tol,max_it,ref,final_ref,n_clicks,languag
                     cols=[{"name": ml.ml(x, language), "id": x} if resultados_barra[x].dtypes == object else {"name": ml.ml(x, language), "id": x,'format': Format(precision=4),'type':'numeric'} for x in resultados_barra.columns]
                     cols2=[{"name": ml.ml(x, language), "id": x} if resultados_fluxo[x].dtypes == object else {"name": ml.ml(x, language), "id": x,'format': Format(precision=4),'type':'numeric'} for x in resultados_fluxo.columns]
                     # calls3=[{"name": ml.ml(x, language), "id": x} if resultados_linha[x].dtypes == object else {"name": ml.ml(x, language), "id": x,'format': Format(precision=4),'type':'numeric'} for x in resultados_linha.columns]
-                    return resultados_barra.to_dict('records'),cols,resultados_fluxo.to_dict('records'),cols2,fig,True,'Fluxo calculado com sucesso!'
+                    return resultados_barra.to_dict('records'),cols,resultados_fluxo.to_dict('records'),cols2,fig,True,ml.ml('Sucesso', language)
 
         return [{" ":" "}], [{"name": " ", "id": " "}],[{" ":" "}],[{"name": " ", "id": " "}],{},False,''
     
     except IndexError as e:
-        print(f'Erro de dimensão!: {e}')
-        return [{" ":" "}], [{"name": " ", "id": " "}],[{" ":" "}],[{"name": " ", "id": " "}],{},True,'ERRO na dimensão dos arquivos de entrada'
+        mensagem = ml.ml('Erro de dimensão', language)
+        print(f'{mensagem}:{e}')
+        return [{" ":" "}], [{"name": " ", "id": " "}],[{" ":" "}],[{"name": " ", "id": " "}],{},True,ml.ml('Erro arquivo entrada', language)
     except Exception as e:
-        print(f'Erro inesperado!: {e}')
+        mensagem = ml.ml('Erro inesperado', language)
+        print(f'{mensagem}:{e}')
         traceback.print_exc()
-        return [{" ":" "}], [{"name": " ", "id": " "}],[{" ":" "}],[{"name": " ", "id": " "}],{},True,'ERRO INESPERADO! Entre em contato com o suporte!'
+        return [{" ":" "}], [{"name": " ", "id": " "}],[{" ":" "}],[{"name": " ", "id": " "}],{},True,ml.ml('Contato Suporte', language)
         
 
 ###### global system data updater routines ######

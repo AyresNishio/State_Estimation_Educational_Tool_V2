@@ -50,10 +50,10 @@ def create_layout(app):
                                 dcc.Input(
                                     id="input_tol_FPD",
                                     type="number",
-                                    # placeholder="1e-4",
-                                    value="1e-4",
+                                    value="1e-5",
                                     max = 1,
-                                    step = 0.0001
+                                    min = 0.00001,
+                                    step = 0.00001
                                 )
                             ],
                         ),
@@ -107,6 +107,45 @@ def create_layout(app):
                         ),
                     ],className="six columns",
                     ),
+
+
+                    html.Div(
+                    [
+                        html.H6('Modulo Tensão Inicial (pu)',style={'display':'inline-block','margin-right':20}),
+                        html.Div(
+                            [
+                                dcc.Input(
+                                    id="input_v_FPD",
+                                    type="number",
+                                    # placeholder="1e-4",
+                                    value="1",
+                                    min = 0,
+                                    step = 0.00001
+                                )
+                            ],
+                        ),
+                    ],className="six columns",
+                    ),
+
+                    html.Div(
+                    [
+                        html.H6('Fase Tensão Inicial (graus)',style={'display':'inline-block','margin-right':20}),
+                        html.Div(
+                            [
+                                dcc.Input(
+                                    id="input_ang_FPD",
+                                    type="number",
+                                    # placeholder="1e-4",
+                                    value="0",
+                                    max = 360,
+                                    min = 0,
+                                    step = 0.00001
+                                )
+                            ],
+                        ),
+                    ],className="six columns",
+                    ),
+
                     html.Br(),
                     
                     html.Div(
