@@ -1,0 +1,25 @@
+# View application logs
+docker logs state-estimation-app
+
+# Stop the application  
+docker stop state-estimation-app
+
+# Restart the application
+docker restart state-estimation-app
+
+# Remove container
+docker rm state-estimation-app
+
+# Clean up everything
+docker-compose down
+
+# Check logs for errors
+docker logs state-estimation-app
+
+# Ensure Docker Desktop is running
+docker info
+
+# Check what's using port 8050
+lsof -i :8050
+
+# Or change the port in docker-compose.yml to something else
